@@ -13,7 +13,6 @@
             get = new XMLHttpRequest();
             get.open("GET", "https://raw.githubusercontent.com/cr-mitchell/cs20hw6/main/songs.json", true)
             get.onreadystatechange = function() {
-                if (get.readyState == 4 && get.status == 200) {
                     hold = get.responseText;
                     song = JSON.parse(hold);
 
@@ -31,8 +30,8 @@
 
                     subarray += "</ul>";
                     document.getElementById("userDisplay").innerHTML = subarray;
-                }
             }
+    
 
             get.send();
         }
@@ -56,7 +55,7 @@
         }
     </script>
 </head>
-<body onload="loadfile()">
+<body onload="loadFile()">
     <h1>Welcome to Charles' Favorite Songs</h1>
 
     <h2>Stringifying my songs as a whole: </h2>
