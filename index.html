@@ -11,7 +11,7 @@
 
         function loadfile() {
             get = new XMLHttpRequest();
-            get.open("GET", "https://github.com/cr-mitchell/cs20hw6/blob/3cedf00ef50b21cf427483f7ac8cc0ad6d282a87/songs.json")
+            get.open("GET", "https://raw.githubusercontent.com/cr-mitchell/cs20hw6/main/songs.json", true)
             get.onreadystatechange = function() {
                 if (get.readyState == 4 && get.status == 200) {
                     hold = get.responseText;
@@ -86,7 +86,7 @@
             <option value="Pop-Rock"> Pop Rock </option>
             <option value="Pop-Punk"> Pop-Punk </option>
         </select>
-        <button onclick="genreSelect()" type="button" id="fetch"> FETCH </button>
+        <button onclick="genreSelect()" type="button" id="fetch"> Filter </button>
     </form>
     <br> <br> <br>
 
