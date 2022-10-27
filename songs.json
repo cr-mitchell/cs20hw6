@@ -1,0 +1,75 @@
+[
+    {
+        "artist": "Kehlani",
+        "title": "Everything",
+        "genres": ["R&B", "Soul", "Calm"],
+        "year": 2022
+    }, 
+    {
+        "artist": "Babyface and Ella Mai",
+        "title": "Keeps on Fallin'",
+        "genres": ["R&B", "Hip-Pop", "Pop"],
+        "year": 2022
+    },
+    {
+        "artist": "Arin Ray and D Smoke",
+        "title": "The Mood",
+        "genres": ["R&B", "Soul", "Calm"],
+        "year": 2022
+    },
+    {
+        "artist": "Lucky Daye",
+        "title": "Over",
+        "genres": ["R&B", "Rap", "Hip-Pop"],
+        "year": 2022
+    },
+    {
+        "artist": "Sevyn Streeter",
+        "title": "Yernin",
+        "genres": ["Rap", "Pop", "Hip-Pop"],
+        "year": 2018
+    },
+    {
+        "artist": "Cardi B",
+        "title": "Money",
+        "genres": ["Rap", "Pop", "Hip-Pop"],
+        "year": 2018
+    },
+    {
+        "artist": "Megan Thee Stallion and Beyone",
+        "title": "Savage Remix",
+        "genres": ["Rap", "Pop", "Hip-Pop"],
+        "year": 2020
+    },
+    {
+        "artist": "Ice Spice",
+        "title": "Munchin (Feelin' U)",
+        "genres": ["Rap", "Pop", "Hip-Pop"],
+        "year": 2022
+    },
+    {
+        "artist": "Post Malone and Doja Cat",
+        "title": "I Like You (A Happier Song)",
+        "genres": ["Pop", "Hip-Pop", "Rap"],
+        "year": 2022
+    },
+    {
+        "artist": "Regard, Troye Sivan, Tate Mcrae",
+        "title": "You",
+        "genres": ["Pop", "Dance", "Electronic"],
+        "year": 2021
+    },
+    {
+        "artist": "Olivia Rodrigo",
+        "title": "Good 4 U",
+        "genres": ["Pop", "Pop Rock", "Pop-punk"],
+        "year": 2021
+    },
+    {
+        "artist": "Doja Cat and SZA",
+        "title": "Kiss Me More",
+        "genres": ["Pop", "R&B", "Pop Rap"],
+        "year": 2021
+    }
+
+]
