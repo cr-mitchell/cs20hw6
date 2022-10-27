@@ -6,48 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSON Songs</title>
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
     <script>
-        jsonArray = new Array();
+        songs = [];
 
-        function loadfile() {
-            get = new XMLHttpRequest();
-            get.open("GET", "https://raw.githubusercontent.com/cr-mitchell/cs20hw6/main/songs.json", true)
-            get.onreadystatechange = function() {
-                    hold = get.responseText;
-                    song = JSON.parse(hold);
-
-                    document.getElementById("rawString").innerHTML = song;
-
-                    subarray = "<ul>";
-
-                    song.forEach(function(onesong) {
-                        subarray += "<li>" + song.title + "<br>" + "Artist :" +
-                                    song.artist + "<br>" + "Genres: " + 
-                                    song.genre.join(" ") + "<br>" + "Year: " + 
-                                    song.year + "</li>" + "<br><br>";
-                        jsonArray.push(song);
-                    })
-
-                    subarray += "</ul>";
-                    document.getElementById("userDisplay").innerHTML = subarray;
+        $.getJSON('songs.json', function(song) {
+            songs = JSON.stringify(song)
+            document.getElementById("rawString").innerHTML = songs;
+            
+            $.each(song, function(i, s) {
+                subarray += "<li>" + s.title + "<br>" + "Artist :" +
+                            s.artist + "<br>" + "Genres: " + 
+                            s.genre.join(" ") + "<br>" + "Year: " + 
+                            s.year + "</li>" + "<br><br>";
+                document.getElementById("userDisplay").innerHTML = subarray;
             }
-    
-
-            get.send();
         }
 
         function genreSelect() {
             key = document.getElementById("select").selectedIndex;
-            if (key >= 0) {
-                option = document.getElementById("select").options[key].value;
-            }
+            option = document.getElementById("select").options[key].value;
 
-            show = "";
-
-            for (i = 0; i < jsonArray.length(); i++) {
-                for (j = 0; j < jsonArray[i].genre.length; j++) {
-                    if (option == jsonArray[i].genre[j]) {
-                        show += jsonArray[i].title + " " + "<br>";
+            for (i = 0; i < songs.length(); i++) {
+                for (j = 0; j < songs[i].genre.length; j++) {
+                    if (option == songs[i].genre[j]) {
+                        show += songs[i].title + " " + "<br>";
                     }
                 }
             }
@@ -55,7 +38,7 @@
         }
     </script>
 </head>
-<body onload="loadFile()">
+<body onload="getfile()">
     <h1>Welcome to Charles' Favorite Songs</h1>
 
     <h2>Stringifying my songs as a whole: </h2>
