@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Songs</title>
+
+    <script>
+        jsonArray = new Array();
+
+        function loadfile() {
+            get = new XMLHttpRequest();
+            get.open("GET", "https://github.com/cr-mitchell/cs20hw6/blob/3cedf00ef50b21cf427483f7ac8cc0ad6d282a87/songs.json")
+            get.onreadystatechange = function() {
+                if (get.readyState == 4 && get.status == 200) {
+                    hold = get.responseText;
+                    song = JSON.parse(hold);
+
+                    document.getElementById("rawString").innerHTML = song;
+
+                    subarray = "<ul>";
+
+                    song.forEach(function(onesong) {
+                        subarray += "<li>" + song.title + "<br>" + "Artist :" +
+                                    song.artist + "<br>" + "Genres: " + 
+                                    song.genre.join(" ") + "<br>" + "Year: " + 
+                                    song.year + "</li>" + "<br><br>";
+                        jsonArray.push(song);
+                    })
+
+                    subarray += "</ul>";
+                    document.getElementById("userDisplay").innerHTML = subarray;
+                }
+            }
+
+            get.send();
+        }
+
+        function genreSelect() {
+            key = document.getElementById("select").selectedIndex;
+            if (key >= 0) {
+                option = document.getElementById("select").options[key].value;
+            }
+
+            show = "";
+
+            for (i = 0; i < jsonArray.length(); i++) {
+                for (j = 0; j < jsonArray[i].genre.length; j++) {
+                    if (option == jsonArray[i].genre[j]) {
+                        show += jsonArray[i].title + " " + "<br>";
+                    }
+                }
+            }
+            document.getElementById("fetchdata").innerHTML = show;
+        }
+    </script>
+</head>
+<body onload="loadfile()">
+    <h1>Welcome to Charles' Favorite Songs</h1>
+
+    <h2>Stringifying my songs as a whole: </h2>
+    <br> <br> 
+    <div id="rawString"></div>
+    <br> <br> <br>
+
+    <h2>A cute, user friendly display</h2>
+    <br> <br>
+    <div id="userDisplay"></div>
+    <br> <br> <br>
+
+    <h2>Select a genre!!!</h2>
+    <br> <br>
+    <form id="form" onsubmit="genreSelect()" method="post">
+        <label for="select">Pick a genre</label>
+        <select id="select">
+            <option value="R&B"> R & B </option>
+            <option value="Soul"> Soul </option>
+            <option value="Calm"> Calm </option>
+            <option value="Hip-Pop"> Hip-Pop </option>
+            <option value="Pop"> Pop </option>
+            <option value="Rap"> Rap </option>
+            <option value="Dance"> Dance </option>
+            <option value="Dance"> Dance </option>
+            <option value="Electronic"> Electronic </option>
+            <option value="Pop-Rock"> Pop Rock </option>
+            <option value="Pop-Punk"> Pop-Punk </option>
+        </select>
+        <button onclick="genreSelect()" type="button" id="fetch"> FETCH </button>
+    </form>
+    <br> <br> <br>
+
+    <div id="fetchdata"></div>
+    <br> <br> <br>
+</body>
+</html>
